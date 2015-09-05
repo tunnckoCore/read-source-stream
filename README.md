@@ -14,9 +14,11 @@ npm i read-source-stream --save
 ## Usage
 > For more use-cases see the [tests](./test.js)
 
-- `<fp>` **{String}** filepath or url
+- `<fp>` **{String}** filepath or remote url
 - `[opts]` **{Object}** options passed to `fs.createReadStream`
 - `returns` **{Stream}** Readable stream
+
+**Example**
 
 ```js
 var read = require('read-source-stream')
@@ -34,6 +36,14 @@ read('//todomvc.com').pipe(process.stdout)
 read('https://github.com').pipe(process.stdout)
 read('www.tunnckocore.tk').pipe(process.stdout)
 ```
+
+
+## Related
+- [encode-image-stream](https://github.com/tunnckocore/encode-image-stream): Encode image to base64 string, just encode. ~20 sloc.
+- [gulp-micromatch](https://github.com/tunnckocore/gulp-micromatch): Filter vinyl files with glob patterns, string, regexp, array, object… [more](https://github.com/tunnckocore/gulp-micromatch)
+- [is-real-object](https://github.com/tunnckocore/is-real-object): Returns `true` if a value is any type of object, but not an array.
+- [path-exists](https://github.com/sindresorhus/path-exists): Check if a path exists
+- [simple-get](https://github.com/feross/simple-get): Simplest way to make http get requests. Supports HTTPS, redirects,… [more](https://github.com/feross/simple-get)
 
 
 ## Contributing
@@ -87,5 +97,5 @@ But before doing anything, please read the [CONTRIBUTING.md](./CONTRIBUTING.md) 
 [freenode-url]: http://webchat.freenode.net/?channels=charlike
 [freenode-img]: https://img.shields.io/badge/freenode-%23charlike-5654a4.svg
 
-[new-message-url]: https://github.com/tunnckoCore/messages
+[new-message-url]: https://github.com/tunnckoCore/ama
 [new-message-img]: https://img.shields.io/badge/ask%20me-anything-green.svg
