@@ -1,0 +1,40 @@
+{
+  "name": "read-source-stream",
+  "version": "0.0.0",
+  "description": "Streaming read of local file or remote url.",
+  "repository": "tunnckoCore/read-source-stream",
+  "author": "Charlike Mike Reagent <@tunnckoCore> (http://www.tunnckocore.tk)",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "standard && node test.js"
+  },
+  "dependencies": {
+    "got": "^4.1.1",
+    "is-real-object": "^1.0.1",
+    "path-exists": "^2.0.0"
+  },
+  "devDependencies": {
+    "assertit": "^0.1.0",
+    "concat-stream": "^1.5.0"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "file",
+    "files",
+    "filestream",
+    "link",
+    "local",
+    "read",
+    "readfile",
+    "remote",
+    "source",
+    "src",
+    "stream",
+    "streamfile",
+    "streaming",
+    "url"
+  ]
+}
