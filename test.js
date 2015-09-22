@@ -42,7 +42,7 @@ test('read-source-stream:', function () {
     }))
   })
   test('read remote todomvc.com', function (done) {
-    read('todomvc.com')
+    read('todomvc.com').on('error', done)
     .pipe(concat(function (body) {
       test.ok(contains(body, '<title>TodoMVC</title>'))
       done()
@@ -56,9 +56,9 @@ test('read-source-stream:', function () {
     }))
   })
   test('read local file with `cwd` option', function (done) {
-    read('package.json', {cwd: 'node_modules/got'})
+    read('package.json', {cwd: 'node_modules/simple-get'})
     .pipe(concat(function (body) {
-      test.ok(contains(body, '"name": "got"'))
+      test.ok(contains(body, '"name": "simple-get"'))
       done()
     }))
   })

@@ -8,9 +8,10 @@
 'use strict'
 
 var fs = require('fs')
-var got = require('got')
 var path = require('path')
 var exists = require('path-exists')
+var through2 = require('through2')
+var simpleGet = require('simple-get')
 var isObject = require('is-real-object')
 
 module.exports = function readSourceStream (fp, opts) {
@@ -28,5 +29,15 @@ module.exports = function readSourceStream (fp, opts) {
   if (/^\/\//.test(fp)) {
     fp = 'http:' + fp
   }
-  return got.stream(fp)
+  if (!/http(?:s)?:\/\//.test(fp)) {
+    fp = 'http://' + fp
+  }
+
+  var stream = through2()
+  simpleGet(fp, function (err, res) {
+    if (err) return stream.emit('error', err)
+    res.pipe(stream)
+  })
+
+  return stream
 }
