@@ -34,7 +34,8 @@ module.exports = function readSourceStream (fp, opts) {
   }
 
   var stream = through2()
-  simpleGet(fp, function (err, res) {
+  opts.url = opts.url || fp // may leads to hacks?
+  simpleGet(opts, function (err, res) {
     if (err) return stream.emit('error', err)
     res.pipe(stream)
   })

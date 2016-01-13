@@ -15,7 +15,7 @@ npm i read-source-stream --save
 > For more use-cases see the [tests](./test.js)
 
 - `<fp>` **{String}** filepath or remote url
-- `[opts]` **{Object}** options passed to `fs.createReadStream`
+- `[opts]` **{Object}** options passed to `fs.createReadStream` and `simple-get`
 - `returns` **{Stream}** Readable stream
 
 **Example**
