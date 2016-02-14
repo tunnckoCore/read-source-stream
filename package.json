@@ -12,7 +12,7 @@
   "dependencies": {
     "is-real-object": "^1.0.1",
     "path-exists": "^2.0.0",
-    "simple-get": "^1.4.3",
+    "simple-get": "^2.0.0",
     "through2": "^2.0.0"
   },
   "devDependencies": {
