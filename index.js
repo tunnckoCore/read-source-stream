@@ -14,9 +14,9 @@ module.exports = function readSourceStream (fp, opts) {
     throw new TypeError('read-source-stream expect `fp` be string')
   }
   opts = utils.isObject(opts) ? opts : {}
+  opts.cwd = opts.cwd || process.cwd()
 
-  var cwd = opts.cwd || process.cwd()
-  var filepath = utils.path.join(cwd, fp)
+  var filepath = utils.path.join(opts.cwd, fp)
 
   if (utils.exists(filepath)) {
     return utils.fs.createReadStream(filepath, opts)
@@ -28,12 +28,6 @@ module.exports = function readSourceStream (fp, opts) {
     fp = 'http://' + fp
   }
 
-  var stream = utils.through2()
-  opts.url = opts.url || fp // may leads to hacks?
-  utils.simpleGet(opts, function (err, res) {
-    if (err) return stream.emit('error', err)
-    res.pipe(stream)
-  })
-
-  return stream
+  opts.url = opts.url || fp
+  return utils.simpleGetStream(opts)
 }
