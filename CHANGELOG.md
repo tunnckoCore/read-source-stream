@@ -1,5 +1,17 @@
 
 
+## 1.0.4 - 2016-05-01
+- Release v1.0.4 / npm@v1.0.4
+- use `pre-commit`
+- fix local dev shits
+- missed to remove through2 from utils.js
+
+## 1.0.3 - 2016-05-01
+- Release v1.0.3 / npm@v1.0.3
+- use `simple-get-stream`
+- use lazy-cache
+- switch to use `try-open`
+
 ## 1.0.2 - 2016-01-13
 - resolves #2
 
