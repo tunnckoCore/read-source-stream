@@ -56,9 +56,9 @@ test('read-source-stream:', function () {
     }))
   })
   test('read local file with `cwd` option', function (done) {
-    read('package.json', {cwd: 'node_modules/simple-get'})
+    read('package.json', {cwd: 'node_modules/simple-get-stream'})
     .pipe(concat(function (body) {
-      test.ok(contains(body, '"name": "simple-get"'))
+      test.ok(contains(body, '"name": "simple-get-stream"'))
       done()
     }))
   })
