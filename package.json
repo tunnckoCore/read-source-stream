@@ -1,6 +1,6 @@
 {
   "name": "read-source-stream",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Streaming read of local file or remote url.",
   "repository": "tunnckoCore/read-source-stream",
   "author": "Charlike Mike Reagent <@tunnckoCore> (http://www.tunnckocore.tk)",
