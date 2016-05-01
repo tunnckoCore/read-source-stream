@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "is-real-object": "^1.0.1",
-    "path-exists": "^2.0.0",
+    "path-exists": "^3.0.0",
     "simple-get": "^1.4.3",
     "through2": "^2.0.0"
   },
