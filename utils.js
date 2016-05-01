@@ -28,7 +28,6 @@ require('fs')
 require('isobject', 'isObject')
 require('path')
 require('simple-get-stream')
-require('through2')
 require('try-open', 'exists')
 
 /**
