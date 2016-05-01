@@ -9,7 +9,7 @@
 
 var fs = require('fs')
 var path = require('path')
-var exists = require('path-exists')
+var exists = require('try-open')
 var through2 = require('through2')
 var simpleGet = require('simple-get')
 var isObject = require('is-real-object')
@@ -23,7 +23,7 @@ module.exports = function readSourceStream (fp, opts) {
   var cwd = opts.cwd || process.cwd()
   var filepath = path.join(cwd, fp)
 
-  if (exists.sync(filepath)) {
+  if (exists(filepath)) {
     return fs.createReadStream(filepath, opts)
   }
   if (/^\/\//.test(fp)) {
