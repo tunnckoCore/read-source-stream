@@ -7,24 +7,19 @@
 
 'use strict'
 
-var fs = require('fs')
-var path = require('path')
-var exists = require('try-open')
-var through2 = require('through2')
-var simpleGet = require('simple-get')
-var isObject = require('is-real-object')
+var utils = require('./utils')
 
 module.exports = function readSourceStream (fp, opts) {
   if (typeof fp !== 'string') {
     throw new TypeError('read-source-stream expect `fp` be string')
   }
-  opts = isObject(opts) ? opts : {}
+  opts = utils.isObject(opts) ? opts : {}
 
   var cwd = opts.cwd || process.cwd()
-  var filepath = path.join(cwd, fp)
+  var filepath = utils.path.join(cwd, fp)
 
-  if (exists(filepath)) {
-    return fs.createReadStream(filepath, opts)
+  if (utils.exists(filepath)) {
+    return utils.fs.createReadStream(filepath, opts)
   }
   if (/^\/\//.test(fp)) {
     fp = 'http:' + fp
@@ -33,9 +28,9 @@ module.exports = function readSourceStream (fp, opts) {
     fp = 'http://' + fp
   }
 
-  var stream = through2()
+  var stream = utils.through2()
   opts.url = opts.url || fp // may leads to hacks?
-  simpleGet(opts, function (err, res) {
+  utils.simpleGet(opts, function (err, res) {
     if (err) return stream.emit('error', err)
     res.pipe(stream)
   })
